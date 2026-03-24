@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: 'The app is not working. What should I do?',
-    a: (<>Force-close and reopen, check your internet, update from the App Store, restart your iPhone. If it persists, email <a href="mailto:support@jurix.app">support@jurix.app</a> with your device model and iOS version.</>),
+    a: (<>Force-close and reopen, check your internet, update from the App Store, restart your iPhone. If it persists, email <a href="mailto:akshit0421@gmail.com">akshit0421@gmail.com</a> with your device model and iOS version.</>),
   },
 ];
 
@@ -72,7 +72,7 @@ export default function Support() {
         <div className="cta-card">
           <h3>Still Need Help?</h3>
           <p>Our support team typically responds within 24 hours.</p>
-          <a className="btn btn-white" href="mailto:support@jurix.app">✉️ &nbsp;Email Support</a>
+          <a className="btn btn-white" href="mailto:akshit0421@gmail.com">✉️ &nbsp;Email Support</a>
         </div>
       </div>
     </main>
