@@ -15,10 +15,20 @@ export default function Navigation() {
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 400);
     } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const goHome = () => {
+    closeMenu();
+    setActiveSection('home');
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -68,9 +78,9 @@ export default function Navigation() {
       </Link>
       <ul className="nav-links">
         <li>
-          <Link to="/" className={isHome ? 'active' : ''} onClick={() => { closeMenu(); setActiveSection('home'); }}>
+          <a href="/" className={isHome ? 'active' : ''} onClick={(e) => { e.preventDefault(); goHome(); }}>
             Home
-          </Link>
+          </a>
         </li>
         <li><a href="#features" className={isSection('features') ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}>Features</a></li>
         <li><a href="#screenshots" className={isSection('screenshots') ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('screenshots'); }}>Screenshots</a></li>
