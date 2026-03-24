@@ -65,7 +65,6 @@ export default function Team() {
             <div className="team-info">
               <h3>{member.name}</h3>
               <span className="team-role">{member.role}</span>
-              <p>{member.desc}</p>
             </div>
           </div>
         ))}
