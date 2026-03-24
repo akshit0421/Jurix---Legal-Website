@@ -50,7 +50,7 @@ export default function Hero() {
           </div>
           <div className="phone-frame">
             <div className="phone-inner">
-              <img className="phone-screenshot" src="/appss/Jurix1.png" alt="JuriX App - Lawyer Discovery" />
+              <img className="phone-screenshot" src="/appss/Jurix0.png" alt="JuriX App" />
             </div>
           </div>
         </div>
