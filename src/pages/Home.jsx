@@ -1,5 +1,6 @@
 import Hero from '../components/Hero';
-import Features from '../components/Features';
+import AppFeatureRows from '../components/AppFeatureRows';
+import Screenshots from '../components/Screenshots';
 import Security from '../components/Security';
 import AgreementFlow from '../components/AgreementFlow';
 import Team from '../components/Team';
@@ -21,7 +22,8 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <Features />
+      <AppFeatureRows />
+      <Screenshots />
       <Security />
       <AgreementFlow />
       <Team />

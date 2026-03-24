@@ -19,7 +19,7 @@ const team = [
     name: 'Seerat Sharma',
     role: 'Swift Developer',
     icon: '📱',
-    image: '/team/seerat.jpg',
+    image: '/teams/seerat.jpg',
     desc: 'Builds and refines core iOS features, ensuring smooth performance and native app quality.',
   },
   {
