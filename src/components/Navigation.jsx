@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Navigation.css';
 
 const SECTIONS = ['features', 'screenshots', 'team'];
@@ -8,6 +8,19 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToSection = (id) => {
+    closeMenu();
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const isActive = (path) => location.pathname === path;
   const closeMenu = () => setIsOpen(false);
@@ -59,9 +72,9 @@ export default function Navigation() {
             Home
           </Link>
         </li>
-        <li><a href="#features" className={isSection('features') ? 'active' : ''} onClick={closeMenu}>Features</a></li>
-        <li><a href="#screenshots" className={isSection('screenshots') ? 'active' : ''} onClick={closeMenu}>Screenshots</a></li>
-        <li><a href="#team" className={isSection('team') ? 'active' : ''} onClick={closeMenu}>Team</a></li>
+        <li><a href="#features" className={isSection('features') ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('features'); }}>Features</a></li>
+        <li><a href="#screenshots" className={isSection('screenshots') ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('screenshots'); }}>Screenshots</a></li>
+        <li><a href="#team" className={isSection('team') ? 'active' : ''} onClick={(e) => { e.preventDefault(); scrollToSection('team'); }}>Team</a></li>
         <li><Link to="/support" className={isActive('/support') ? 'active' : ''} onClick={closeMenu}>Support</Link></li>
         <li><Link to="/privacy" className={isActive('/privacy') ? 'active' : ''} onClick={closeMenu}>Privacy</Link></li>
       </ul>
