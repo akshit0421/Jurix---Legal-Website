@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support – JuriX</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --v:#5B53D7;--vd:#4840b8;--vdp:#3730a3;
+  --vg:rgba(91,83,215,.18);--vp:rgba(91,83,215,.07);--vm:rgba(91,83,215,.13);
+  --bg:#fff;--bgs:#f8f7ff;--bgc:#fff;
+  --t1:#16113a;--t2:#4b4770;--tm:#8b87a8;
+  --bd:rgba(91,83,215,.13);--bdb:rgba(91,83,215,.32);
+  --sh:0 2px 16px rgba(91,83,215,.08);
+  --shm:0 6px 32px rgba(91,83,215,.12);
+  --shl:0 16px 56px rgba(91,83,215,.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--t1);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 6vw;height:72px;background:rgba(255,255,255,.95);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--bd)}
+.nav-logo{text-decoration:none;display:flex;align-items:center}
+.nav-logo img{height:48px;width:auto;display:block;filter:invert(1) sepia(1) saturate(2) hue-rotate(220deg) brightness(.85)}
+.nav-links{display:flex;gap:.2rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--t2);font-size:.9rem;font-weight:500;padding:.42rem 1rem;border-radius:8px;transition:all .18s}
+.nav-links a:hover{color:var(--v);background:var(--vp)}
+.nav-links a.active{color:var(--v);background:var(--vm);font-weight:600}
+.nav-dl{background:var(--v)!important;color:#fff!important;border-radius:8px;padding:.42rem 1.1rem!important;font-weight:600!important;box-shadow:0 4px 14px var(--vg)}
+.nav-dl:hover{background:var(--vd)!important;transform:translateY(-1px)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .3s}
+
+/* FOOTER */
+footer{background:#16113a;padding:4rem 6vw 2.5rem;border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand img{height:52px;width:auto;filter:brightness(10)}
+.footer-brand p{font-size:.875rem;color:rgba(255,255,255,.45);margin-top:.85rem;max-width:260px;line-height:1.7}
+.footer-col h5{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
+.footer-col a{display:block;text-decoration:none;color:rgba(255,255,255,.5);font-size:.875rem;padding:.25rem 0;transition:color .18s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.75rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.8rem;color:rgba(255,255,255,.28)}
+.footer-badges{display:flex;gap:.75rem;flex-wrap:wrap}
+.footer-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:.25rem .75rem;font-size:.72rem;color:rgba(255,255,255,.45)}
+
+/* UTILITIES */
+.section-label{display:inline-flex;align-items:center;gap:.5rem;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--v);margin-bottom:.85rem}
+.section-label::before{content:'';display:inline-block;width:16px;height:2px;background:var(--v);border-radius:2px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:10px;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:600;letter-spacing:.02em;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:var(--v);color:#fff;box-shadow:0 4px 16px var(--vg)}
+.btn-primary:hover{background:var(--vd);transform:translateY(-1px);box-shadow:0 6px 24px rgba(91,83,215,.28)}
+.btn-outline{background:transparent;color:var(--v);border:1.5px solid var(--bdb)}
+.btn-outline:hover{background:var(--vp);border-color:var(--v);transform:translateY(-1px)}
+.btn-white{background:#fff;color:var(--v);font-weight:700;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.btn-white:hover{background:var(--bgs);transform:translateY(-1px)}
+
+/* PAGE HEADER */
+.page-header{margin-top:72px;padding:5rem 6vw 4.5rem;background:var(--bgs);border-bottom:1px solid var(--bd);position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 90% 50%,rgba(91,83,215,.06) 0%,transparent 70%);pointer-events:none}
+.page-header-inner{position:relative;z-index:1;max-width:780px}
+.page-header h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.2rem,4.5vw,3rem); /* slightly smaller */
+  font-weight:700; /* reduce heaviness */
+  line-height:1.15;
+  letter-spacing:-0.01em; /* loosen spacing */
+  color:var(--t1);
+}.page-header h1 em{font-style:normal;color:var(--v)}
+.page-header p{color:var(--t2);font-size:1.05rem;max-width:520px}
+
+/* CONTENT */
+.content-wrap{max-width:880px;margin:0 auto;padding:4.5rem 6vw}
+
+/* CARDS */
+.card{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:2rem 2.25rem;margin-bottom:1.25rem;box-shadow:var(--sh);transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:var(--bdb);box-shadow:var(--shm)}
+.card h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.6rem;color:var(--t1)}
+.card p,.card ul{color:var(--t2);font-size:.93rem}
+.card ul{padding-left:1.3rem}
+.card ul li{margin-bottom:.45rem}
+.card a{color:var(--v)}
+.divider{border:none;height:1px;background:linear-gradient(90deg,transparent,var(--bd),transparent);margin:3rem 0}
+h2.section-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.7rem,3vw,2.3rem); /* slightly better scale */
+  font-weight:700; /* key fix */
+  letter-spacing:-0.01em; /* less compressed */
+  line-height:1.2;
+  color:var(--t1);
+}
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;animation:fadeUp .55s ease forwards}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}
+
+/* MOBILE NAV */
+@media(max-width:768px){
+  .nav-links{display:none}.nav-toggle{display:flex}
+  .card{padding:1.4rem 1.2rem}
+  .page-header{padding:3.5rem 5vw 3rem}
+  .content-wrap{padding:3rem 5vw}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+.nav-open .nav-links{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--bd);padding:1rem 6vw 1.5rem;gap:.25rem;z-index:199}
+</style>
+  <style>
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:1rem;margin-top:1.25rem}
+.contact-card{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:1.6rem;text-align:center;transition:all .2s;position:relative;overflow:hidden}
+.contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--v);opacity:0;transition:opacity .2s}
+.contact-card:hover{border-color:var(--bdb);transform:translateY(-3px);box-shadow:var(--shm)}
+.contact-card:hover::before{opacity:1}
+.contact-icon{font-size:1.7rem;margin-bottom:.7rem;display:block}
+.contact-card h4{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:.3rem;color:var(--t1)}
+.contact-card p{font-size:.8rem;color:var(--tm);margin-bottom:.5rem}
+.contact-card a{color:var(--v);font-size:.84rem;font-weight:500;text-decoration:none}
+.contact-card a:hover{text-decoration:underline}
+.faq-item{border-bottom:1px solid var(--bd);padding:1rem 0}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-family:'Syne',sans-serif;font-size:.97rem;font-weight:600;color:var(--t1);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;user-select:none;transition:color .18s}
+.faq-q:hover{color:var(--v)}
+.faq-toggle{width:26px;height:26px;border-radius:7px;background:var(--vp);border:1px solid var(--bdb);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--v);flex-shrink:0;transition:all .2s;line-height:1}
+.faq-item.open .faq-toggle{background:var(--v);border-color:var(--v);color:#fff;transform:rotate(45deg)}
+.faq-a{font-size:.9rem;color:var(--t2);max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;line-height:1.75}
+.faq-item.open .faq-a{max-height:500px;padding-top:.7rem}
+.faq-a a{color:var(--v)}
+.steps-list{counter-reset:step;list-style:none;padding:0}
+.steps-list li{counter-increment:step;padding:.6rem 0 .6rem 2.75rem;position:relative;font-size:.9rem;color:var(--t2);border-bottom:1px solid var(--bd)}
+.steps-list li:last-child{border-bottom:none}
+.steps-list li::before{content:counter(step);position:absolute;left:0;top:.6rem;width:22px;height:22px;background:var(--v);color:#fff;font-size:.7rem;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.steps-list li a{color:var(--v)}
+.cta-card{background:var(--v);border-radius:16px;padding:2.5rem;text-align:center;box-shadow:var(--shl)}
+.cta-card h3{
+  font-family:'Syne',sans-serif;
+  font-size:1.4rem; /* slightly bigger instead of bold */
+  font-weight:700; /* reduce heaviness */
+  letter-spacing:-0.01em;
+  line-height:1.2;
+  color:#fff;
+}.cta-card p{color:rgba(255,255,255,.75);margin-bottom:1.4rem}
+.fh{background:#fff;border:1px solid var(--bd);border-left:3px solid var(--v);border-radius:0 14px 14px 0;padding:1.4rem 1.75rem;margin-bottom:1.1rem;display:flex;gap:1.1rem;align-items:flex-start;box-shadow:var(--sh);transition:box-shadow .2s}
+.fh:hover{box-shadow:var(--shm)}
+.fh-icon{font-size:1.75rem;flex-shrink:0;margin-top:.05rem}
+.fh h4{font-family:'Syne',sans-serif;font-size:.97rem;font-weight:700;color:var(--t1);margin-bottom:.3rem}
+.fh p{font-size:.875rem;color:var(--t2);line-height:1.65}
+.fh .tag{display:inline-flex;align-items:center;gap:.3rem;font-size:.63rem;font-weight:700;padding:.15rem .55rem;border-radius:100px;background:var(--vm);color:var(--v);border:1px solid var(--bdb);margin-bottom:.45rem}
+.fh.green{border-left-color:#22c55e}.fh.green .tag{background:rgba(34,197,94,.08);color:#16a34a;border-color:rgba(34,197,94,.25)}
+.fh.cal{border-left-color:#0ea5e9}.fh.cal .tag{background:rgba(14,165,233,.08);color:#0284c7;border-color:rgba(14,165,233,.25)}
+</style>
+</head>
+<body>
+<nav id="mn">
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="support.html" class="active">Support</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+  <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
+</nav>
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="section-label">Help &amp; Support</div>
+    <h1>We're Here to <em>Help You</em></h1>
+    <p>Find answers to common questions, understand how the app works, or reach our team directly. We respond within 24–48 hours.</p>
+  </div>
+</div>
+<div class="content-wrap">
+  <div class="section-label">FAQ</div>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="card" style="padding:.25rem 2rem">
+    <div class="faq-item open"><div class="faq-q">What is JuriX?<span class="faq-toggle">+</span></div><div class="faq-a">JuriX is an iOS legal technology app connecting clients with Bar Council verified lawyers. It covers the full journey — finding a lawyer, sending enquiries, encrypted discussions, digital agreement signing, and real-time court updates.</div></div>
+    <div class="faq-item"><div class="faq-q">How are lawyers verified on JuriX?<span class="faq-toggle">+</span></div><div class="faq-a">Lawyers must provide their Bar Council registration ID and a photo of their Bar ID card. JuriX verifies this through an API or manual review before their profile goes live.</div></div>
+    <div class="faq-item"><div class="faq-q">How does the enquiry system work?<span class="faq-toggle">+</span></div><div class="faq-a">Search for a lawyer and tap "Consult" to send an enquiry. The lawyer receives a notification and can accept or decline. You're notified immediately of their response.</div></div>
+    <div class="faq-item"><div class="faq-q">What happens after a lawyer accepts my enquiry?<span class="faq-toggle">+</span></div><div class="faq-a">The case enters <strong>In Discussion</strong> mode. You and your lawyer can have a secure in-chat. The lawyer uses this phase to understand your case fully before officially taking it on.</div></div>
+    <div class="faq-item"><div class="faq-q">How does the agreement signing process work?<span class="faq-toggle">+</span></div><div class="faq-a">When the lawyer is ready, they upload a legal agreement form through the agreement button. You review, sign, and return it. Once received, the case is officially opened.</div></div>
+    <div class="faq-item"><div class="faq-q">Is the chat really private?<span class="faq-toggle">+</span></div><div class="faq-a">Yes. All messages are end-to-end encrypted — only you and your lawyer can read them. Not even JuriX servers can access the content. No third-party services are involved.</div></div>
+    <div class="faq-item"><div class="faq-q">How does the lawyer dashboard work?<span class="faq-toggle">+</span></div><div class="faq-a">The dashboard shows real-time hearing updates and daily cause lists from official court APIs, highlighting next upcoming and currently ongoing hearings so lawyers are always prepared.</div></div>
+    <!-- <div class="faq-item"><div class="faq-q">How do I set up iPhone Calendar Sync?<span class="faq-toggle">+</span></div><div class="faq-a">Go to Settings → Calendar Sync in JuriX and toggle it on. Grant calendar permissions when prompted. All hearings and meetings will sync automatically to your iPhone Calendar with reminders.</div></div> -->
+    <!-- <div class="faq-item"><div class="faq-q">How do I delete my account?<span class="faq-toggle">+</span></div><div class="faq-a">Settings → Account → Delete Account in the app, or email <a href="mailto:privacy@jurix.app">privacy@jurix.app</a> with "Account Deletion Request". Processed within 7 business days.</div></div> -->
+    <div class="faq-item"><div class="faq-q">The app is not working. What should I do?<span class="faq-toggle">+</span></div><div class="faq-a">Force-close and reopen, check your internet, update from the App Store, restart your iPhone. If it persists, email <a href="mailto:support@jurix.app">support@jurix.app</a> with your device model and iOS version.</div></div>
+  </div>
+  <!-- <hr class="divider"/> -->
+  <!-- <div class="section-label">Troubleshooting</div>
+  <h2 class="section-title">Common Fixes</h2>
+  <div class="card"><h3>🔒 Encrypted Chat Not Starting</h3><ul class="steps-list"><li>Ensure the lawyer has accepted your enquiry — chat is only available in In Discussion mode</li><li>Update JuriX to the latest version from the App Store</li><li>Check your internet connection</li><li>Log out and back in to refresh your session</li></ul></div>
+  <div class="card"><h3>📝 Can't Upload Agreement / Documents</h3><ul class="steps-list"><li>Grant access: iPhone Settings → Privacy → Files / Photos → JuriX</li><li>Files must be under 25MB. Supported: PDF, DOCX, JPG, PNG</li><li>Ensure you are in an active In Discussion case with the lawyer</li></ul></div>
+  <div class="card"><h3>📅 Calendar Sync Not Working</h3><ul class="steps-list"><li>iPhone Settings → Privacy &amp; Security → Calendars → JuriX → enable access</li><li>In JuriX: Settings → Calendar Sync — toggle off and back on</li><li>New events sync within a few minutes — wait and refresh</li></ul></div>
+  <div class="card"><h3>🏛️ Court Data Not Updating</h3><ul class="steps-list"><li>Pull down to refresh on the Dashboard or Cause List screen</li><li>Check your internet connection</li><li>If data is 24+ hours old, contact <a href="mailto:support@jurix.app">support@jurix.app</a></li></ul></div>
+  <div class="card"><h3>📍 Nearby Lawyers Not Showing</h3><ul class="steps-list"><li>iPhone Settings → Privacy &amp; Security → Location Services → JuriX → "While Using the App"</li><li>Ensure Location Services are enabled at system level</li><li>Try expanding your search radius in the filter settings</li></ul></div> -->
+  <hr class="divider"/>
+  <div class="cta-card">
+    <h3>Still Need Help?</h3>
+    <p>Our support team typically responds within 24 hours.</p>
+    <a class="btn btn-white" href="mailto:support@jurix.app">✉️ &nbsp;Email Support</a>
+  </div>
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/JURIX logo design on white background.png" alt="JuriX Logo"/>
+        <p>JuriX is trusted legal companion — connecting clients with verified lawyers, delivering real-time court updates, and keeping every interaction private and secure.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <!-- <a href="mailto:support@jurix.app">support@jurix.app</a>
+        <a href="mailto:lawyers@jurix.app">Lawyer Registration</a> -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 JuriX. All rights reserved. Made in India 🇮🇳</p>
+    </div>
+  </div>
+</footer>
+
+<script>document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));</script>
+<script>
+const t=document.getElementById('nt'),n=document.getElementById('mn');
+if(t)t.addEventListener('click',()=>n.classList.toggle('nav-open'));
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.style.animationPlayState='running'});},{threshold:.08});
+document.querySelectorAll('.fade-up').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el)});
+</script>
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JuriX – India's Legal Companion App</title>
+  <meta name="description" content="JuriX connects clients with Bar Council verified lawyers, delivers real-time court hearings, encrypted chats, and digital agreement signing — all in one iOS app."/>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --v:#5B53D7;--vd:#4840b8;--vdp:#3730a3;
+  --vg:rgba(91,83,215,.18);--vp:rgba(91,83,215,.07);--vm:rgba(91,83,215,.13);
+  --bg:#fff;--bgs:#f8f7ff;--bgc:#fff;
+  --t1:#16113a;--t2:#4b4770;--tm:#8b87a8;
+  --bd:rgba(91,83,215,.13);--bdb:rgba(91,83,215,.32);
+  --sh:0 2px 16px rgba(91,83,215,.08);
+  --shm:0 6px 32px rgba(91,83,215,.12);
+  --shl:0 16px 56px rgba(91,83,215,.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--t1);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 6vw;height:72px;background:rgba(255,255,255,.95);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--bd)}
+.nav-logo{text-decoration:none;display:flex;align-items:center}
+.nav-logo img{height:80px;width:auto;display:block;filter:invert(1) sepia(1) saturate(2) hue-rotate(220deg) brightness(.85)}
+.nav-links{display:flex;gap:.2rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--t2);font-size:.9rem;font-weight:500;padding:.42rem 1rem;border-radius:8px;transition:all .18s}
+.nav-links a:hover{color:var(--v);background:var(--vp)}
+.nav-links a.active{color:var(--v);background:var(--vm);font-weight:600}
+.nav-dl{background:var(--v)!important;color:#fff!important;border-radius:8px;padding:.42rem 1.1rem!important;font-weight:600!important;box-shadow:0 4px 14px var(--vg)}
+.nav-dl:hover{background:var(--vd)!important;transform:translateY(-1px)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .3s}
+
+/* FOOTER */
+footer{background:#16113a;padding:4rem 6vw 2.5rem;border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand img{height:100px;width:auto;filter:brightness(10)}
+.footer-brand p{font-size:.875rem;color:rgba(255,255,255,.45);margin-top:.85rem;max-width:260px;line-height:1.7}
+.footer-col h5{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
+.footer-col a{display:block;text-decoration:none;color:rgba(255,255,255,.5);font-size:.875rem;padding:.25rem 0;transition:color .18s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.75rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.8rem;color:rgba(255,255,255,.28)}
+.footer-badges{display:flex;gap:.75rem;flex-wrap:wrap}
+.footer-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:.25rem .75rem;font-size:.72rem;color:rgba(255,255,255,.45)}
+
+/* UTILITIES */
+.section-label{display:inline-flex;align-items:center;gap:.5rem;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--v);margin-bottom:.85rem}
+.section-label::before{content:'';display:inline-block;width:16px;height:2px;background:var(--v);border-radius:2px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:10px;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:600;letter-spacing:.02em;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:var(--v);color:#fff;box-shadow:0 4px 16px var(--vg)}
+.btn-primary:hover{background:var(--vd);transform:translateY(-1px);box-shadow:0 6px 24px rgba(91,83,215,.28)}
+.btn-outline{background:transparent;color:var(--v);border:1.5px solid var(--bdb)}
+.btn-outline:hover{background:var(--vp);border-color:var(--v);transform:translateY(-1px)}
+.btn-white{background:#fff;color:var(--v);font-weight:700;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.btn-white:hover{background:var(--bgs);transform:translateY(-1px)}
+
+/* PAGE HEADER */
+.page-header{margin-top:72px;padding:5rem 6vw 4.5rem;background:var(--bgs);border-bottom:1px solid var(--bd);position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 90% 50%,rgba(91,83,215,.06) 0%,transparent 70%);pointer-events:none}
+.page-header-inner{position:relative;z-index:1;max-width:780px}
+.page-header h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.2rem,4.5vw,3rem); /* slightly smaller */
+  font-weight:700; /* reduce heaviness */
+  line-height:1.15;
+  letter-spacing:-0.01em; /* loosen spacing */
+  color:var(--t1);
+}.page-header h1 em{font-style:normal;color:var(--v)}
+.page-header p{color:var(--t2);font-size:1.05rem;max-width:520px}
+
+/* CONTENT */
+.content-wrap{max-width:880px;margin:0 auto;padding:4.5rem 6vw}
+
+/* CARDS */
+.card{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:2rem 2.25rem;margin-bottom:1.25rem;box-shadow:var(--sh);transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:var(--bdb);box-shadow:var(--shm)}
+.card h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.6rem;color:var(--t1)}
+.card p,.card ul{color:var(--t2);font-size:.93rem}
+.card ul{padding-left:1.3rem}
+.card ul li{margin-bottom:.45rem}
+.card a{color:var(--v)}
+.divider{border:none;height:1px;background:linear-gradient(90deg,transparent,var(--bd),transparent);margin:3rem 0}
+h2.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:800;margin-bottom:1.5rem;color:var(--t1);letter-spacing:-.02em}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;animation:fadeUp .55s ease forwards}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}
+
+/* MOBILE NAV */
+@media(max-width:768px){
+  .nav-links{display:none}.nav-toggle{display:flex}
+  .card{padding:1.4rem 1.2rem}
+  .page-header{padding:3.5rem 5vw 3rem}
+  .content-wrap{padding:3rem 5vw}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+.nav-open .nav-links{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--bd);padding:1rem 6vw 1.5rem;gap:.25rem;z-index:199}
+</style>
+  <style>
+/* HERO */
+.hero{margin-top:72px;min-height:calc(100vh - 72px);display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem;padding:5rem 8vw;background:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:700px;height:700px;background:radial-gradient(circle,rgba(91,83,215,.06) 0%,transparent 65%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(91,83,215,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(91,83,215,.04) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 70% 70% at 60% 50%,black 20%,transparent 80%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.35rem 1rem .35rem .45rem;background:var(--vm);border:1px solid var(--bdb);border-radius:100px;font-size:.75rem;font-weight:600;letter-spacing:.04em;color:var(--v);margin-bottom:1.5rem}
+.hero-eyebrow-dot{width:20px;height:20px;background:var(--v);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#fff}
+.hero h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.6rem,5vw,4.2rem); /* slightly smaller */
+  font-weight:700; /* was 800 → reduce heaviness */
+  line-height:1.1; /* tighter vertical spacing */
+  letter-spacing:-0.01em; /* reduce compression */
+  color:var(--t1);
+  margin-bottom:1.25rem;
+}
+.hero h1 span{color:var(--v)}
+.hero-desc{color:var(--t2);font-size:1.05rem;max-width:430px;margin-bottom:2.25rem;line-height:1.75}
+.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.hero-pills{display:flex;gap:.5rem;flex-wrap:wrap}
+.hero-pill{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .85rem;background:var(--bgs);border:1px solid var(--bd);border-radius:100px;font-size:.75rem;color:var(--t2);font-weight:500}
+
+/* PHONE VISUAL */
+.hero-visual{position:relative;z-index:1;display:flex;justify-content:center;align-items:center;padding:3rem 1rem}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes tf{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.phone-wrap{position:relative;animation:float 6s ease-in-out infinite}
+.phone-wrap::before{content:'';position:absolute;top:15%;left:5%;right:5%;bottom:-5%;background:radial-gradient(ellipse at 50% 70%,rgba(91,83,215,.2) 0%,transparent 65%);filter:blur(36px);z-index:0;pointer-events:none}
+.phone-frame{position:relative;z-index:1;padding:7px;border-radius:50px;background:linear-gradient(150deg,rgba(91,83,215,.55) 0%,rgba(91,83,215,.18) 50%,rgba(139,131,255,.4) 100%);box-shadow:0 0 0 1px rgba(255,255,255,.5) inset,0 28px 72px rgba(91,83,215,.22),0 8px 24px rgba(0,0,0,.1)}
+.phone-inner{border-radius:44px;overflow:hidden;background:#000;box-shadow:0 0 0 1px rgba(255,255,255,.05) inset}
+.phone-inner::after{content:'';position:absolute;inset:0;z-index:3;background:linear-gradient(135deg,rgba(255,255,255,.05) 0%,transparent 45%);pointer-events:none;border-radius:44px}
+.phone-screenshot{display:block;width:270px;height:auto;position:relative;z-index:1}
+/* floating tags */
+.ftag{position:absolute;z-index:10;background:#fff;border:1px solid var(--bdb);border-radius:12px;padding:9px 13px;display:flex;align-items:center;gap:9px;box-shadow:0 4px 20px rgba(91,83,215,.1),0 1px 4px rgba(0,0,0,.05)}
+.ftag-icon{font-size:1.05rem;flex-shrink:0;line-height:1}
+.ftag-text{font-size:.65rem;color:var(--tm);line-height:1.4}
+.ftag-text strong{display:block;color:var(--t1);font-size:.71rem;font-weight:700;margin-bottom:1px}
+.ft1{top:60px;right:-58px;width:168px;animation:tf 4s ease-in-out infinite}
+.ft2{bottom:55px;right:-58px;width:168px;animation:tf 4.5s ease-in-out 1.8s infinite}
+.ft3{bottom:185px;right:-58px;width:160px;animation:tf 5.5s ease-in-out .4s infinite;border-color:rgba(34,197,94,.35)}
+.ft3 .ftag-text strong{color:#16a34a}
+.ft3-dot{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.15);flex-shrink:0}
+.ft4{bottom:120px;left:-58px;z-index:10;width:150px;background:var(--v);border-color:rgba(91,83,215,.3);animation:tf 5s ease-in-out 1s infinite;border-radius:12px;padding:12px 15px;box-shadow:0 8px 32px rgba(91,83,215,.28)}
+.ft4-num{font-family:'Syne',sans-serif;font-size:1.65rem;font-weight:800;color:#fff;line-height:1}
+.ft4-label{font-size:.64rem;color:rgba(255,255,255,.75);margin-top:3px}
+
+/* TRUST STRIP */
+.trust-strip{padding:1rem 8vw;background:var(--bgs);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--tm)}
+.trust-item strong{color:var(--t2);font-weight:500}
+
+/* MARQUEE */
+.marquee-band{padding:1rem 0;background:var(--v);overflow:hidden}
+.marquee-track{display:flex;animation:marquee 28s linear infinite;width:max-content}
+.marquee-item{white-space:nowrap;padding:0 2.5rem;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:1rem}
+.marquee-item::after{content:'◆';font-size:.45rem;color:rgba(255,255,255,.4)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* HOW IT WORKS */
+.how-section{padding:7rem 8vw;background:#fff}
+.how-inner{max-width:1100px;margin:0 auto}
+.how-header{text-align:center;margin-bottom:5rem}
+.how-header h2{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;color:var(--t1);margin-top:.5rem}
+.how-header p{color:var(--t2);margin-top:.65rem;max-width:480px;margin-left:auto;margin-right:auto}
+.how-tabs{display:flex;gap:.5rem;justify-content:center;margin-bottom:4rem;flex-wrap:wrap}
+.how-tab{padding:.5rem 1.25rem;border-radius:100px;font-family:'Syne',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;border:1.5px solid var(--bd);color:var(--t2);background:#fff;transition:all .18s}
+.how-tab.active,.how-tab:hover{background:var(--v);color:#fff;border-color:var(--v)}
+.how-flow{display:grid;grid-template-columns:1fr;gap:1rem;max-width:760px;margin:0 auto}
+.flow-step{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:1.6rem 1.75rem;display:flex;align-items:flex-start;gap:1.25rem;box-shadow:var(--sh);transition:all .22s;position:relative;overflow:hidden}
+.flow-step::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--v);border-radius:0 2px 2px 0;opacity:0;transition:opacity .22s}
+.flow-step:hover{border-color:var(--bdb);box-shadow:var(--shm);transform:translateX(4px)}
+.flow-step:hover::before{opacity:1}
+.flow-num{width:40px;height:40px;border-radius:11px;background:var(--v);color:#fff;font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.flow-icon{font-size:1.8rem;flex-shrink:0;margin-top:.1rem}
+.flow-body h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--t1);margin-bottom:.3rem}
+.flow-body p{font-size:.875rem;color:var(--t2);line-height:1.65}
+.flow-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.63rem;font-weight:700;padding:.18rem .6rem;border-radius:100px;margin-top:.45rem;margin-right:.3rem}
+.fb-secure{background:rgba(34,197,94,.08);color:#16a34a;border:1px solid rgba(34,197,94,.22)}
+.fb-info{background:var(--vm);color:var(--v);border:1px solid var(--bdb)}
+.how-panel{display:none}.how-panel.active{display:block}
+
+/* FEATURES */
+.features-section{padding:7rem 8vw;background:var(--bgs)}
+.features-section::before{content:'';display:block;position:relative}
+.feat-header{text-align:center;margin-bottom:3.5rem}
+.feat-header h2 {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.8rem,3.5vw,2.6rem); /* slightly smaller */
+  font-weight:700; /* reduce heaviness */
+  letter-spacing:-0.01em; /* less squished */
+  line-height:1.2; /* better spacing */
+  color:var(--t1);
+}
+.feat-header p{color:var(--t2);margin-top:.65rem;max-width:440px;margin-left:auto;margin-right:auto}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;max-width:1100px;margin:0 auto}
+.feat-card{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:1.9rem;transition:all .25s;position:relative;overflow:hidden}
+.feat-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--v);opacity:0;transition:opacity .25s}
+.feat-card:hover{transform:translateY(-5px);border-color:var(--bdb);box-shadow:var(--shl)}
+.feat-card:hover::after{opacity:1}
+.feat-icon{width:50px;height:50px;background:var(--vp);border:1px solid var(--bd);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.1rem;transition:all .25s}
+.feat-card:hover .feat-icon{background:var(--vm);border-color:var(--bdb)}
+.feat-card h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.45rem;color:var(--t1)}
+.feat-card p{font-size:.875rem;color:var(--t2);line-height:1.65}
+
+/* SECURITY BAND */
+.security-band{padding:7rem 8vw;background:#fff}
+.security-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.security-text h2{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:700; /* was 800 */
+  letter-spacing:-0.01em; /* was tighter */
+  line-height:1.2;
+  color:var(--t1);
+}.security-text h2 span{color:var(--v)}
+.security-text p{color:var(--t2);font-size:.95rem;margin-bottom:1.75rem;line-height:1.75}
+.sec-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:.8rem}
+.sec-list li{display:flex;align-items:flex-start;gap:.8rem;font-size:.9rem;color:var(--t2)}
+.sec-check{width:20px;height:20px;border-radius:6px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.28);display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#16a34a;flex-shrink:0;margin-top:.15rem;font-weight:700}
+.sec-cards{display:flex;flex-direction:column;gap:.8rem}
+.sec-card{background:#fff;border:1px solid var(--bd);border-radius:13px;padding:1.1rem 1.35rem;display:flex;align-items:center;gap:.9rem;box-shadow:var(--sh);transition:all .2s;position:relative;overflow:hidden}
+.sec-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.sec-card.g::before{background:#22c55e}
+.sec-card.b::before{background:var(--v)}
+.sec-card.c::before{background:#0ea5e9}
+.sec-card:hover{border-color:var(--bdb);box-shadow:var(--shm);transform:translateX(3px)}
+.sc-icon{font-size:1.4rem;flex-shrink:0}
+.sc-title{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--t1);margin-bottom:.15rem}
+.sc-desc{font-size:.8rem;color:var(--tm)}
+.sc-badge{margin-left:auto;font-size:.6rem;font-weight:700;padding:.22rem .6rem;border-radius:100px;flex-shrink:0}
+.sc-badge.g{background:rgba(34,197,94,.08);color:#16a34a;border:1px solid rgba(34,197,94,.2)}
+.sc-badge.b{background:var(--vp);color:var(--v);border:1px solid var(--bdb)}
+.sc-badge.c{background:rgba(14,165,233,.08);color:#0284c7;border:1px solid rgba(14,165,233,.2)}
+
+/* AGREEMENT FLOW */
+.agreement-section{padding:7rem 8vw;background:var(--bgs)}
+.agreement-inner{max-width:900px;margin:0 auto;text-align:center}
+.agreement-inner h2 {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.8rem,3.5vw,2.5rem); /* slightly smaller */
+  font-weight:700; /* reduce heaviness */
+  letter-spacing:-0.01em; /* less compressed */
+  line-height:1.2; /* better spacing */
+  color:var(--t1);
+}.agreement-inner p{color:var(--t2);margin-bottom:3.5rem;font-size:1rem;max-width:520px;margin-left:auto;margin-right:auto}
+.agreement-flow{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap}
+.aflow-step{text-align:center;padding:0 1.5rem;flex:1;min-width:140px}
+.aflow-icon{width:60px;height:60px;border-radius:50%;background:var(--v);color:#fff;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;box-shadow:0 4px 16px var(--vg)}
+.aflow-arrow{color:var(--bdb);font-size:1.2rem;flex-shrink:0}
+.aflow-step h4{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--t1);margin-bottom:.3rem}
+.aflow-step p{font-size:.8rem;color:var(--t2)}
+
+/* CTA */
+.cta-section{padding:7rem 8vw;background:var(--v);position:relative;overflow:hidden;text-align:center}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(255,255,255,.08) 0%,transparent 65%);pointer-events:none}
+.cta-inner{position:relative;z-index:1}
+.cta-section h2{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:.85rem;max-width:580px;margin-left:auto;margin-right:auto}
+.cta-section .section-label{color:rgba(255,255,255,.65)}.cta-section .section-label::before{background:rgba(255,255,255,.45)}
+.cta-section p{color:rgba(255,255,255,.78);margin-bottom:2.25rem;font-size:1rem}
+.cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.store-badge{display:inline-flex;align-items:center;gap:.7rem;padding:.75rem 1.5rem;background:#fff;color:var(--t1);border-radius:12px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.store-badge:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.18)}
+.store-badge-icon{font-size:1.5rem;line-height:1}
+.store-badge small{display:block;font-size:.62rem;font-weight:400;color:var(--tm)}
+
+@media(max-width:1024px){.feat-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto;padding:3rem 6vw 4rem}.hero-visual{display:none}.security-inner{grid-template-columns:1fr}.agreement-flow{flex-direction:column;gap:1.5rem}.aflow-arrow{transform:rotate(90deg)}}
+@media(max-width:600px){.feat-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav id="mn">
+  <ul class="nav-links"><li><a href="index.html"class="active">Home</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+  <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div style="position:relative;z-index:1">
+    <h1 class="fade-up d1">Connect with Lawyers.<br><span>Know Your Case.</span></h1>
+    <p class="hero-desc fade-up d2">JuriX bridges the gap between clients and verified advocates — from your first enquiry to a signed legal agreement, with real-time court updates along the way.</p>
+    <div class="hero-cta fade-up d3">
+      <a class="btn btn-primary" href="#">Download on App Store</a>
+      <a class="btn btn-outline" href="support.html">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-visual fade-up d2">
+    <div class="phone-wrap">
+      <div class="ftag ft1">
+        <div class="ftag-icon">✅</div>
+        <div class="ftag-text"><strong>Enquiry Accepted</strong>Case is In Discussion</div>
+      </div>
+      <!-- <div class="ftag ft2">
+        <div class="ftag-icon">📝</div>
+        <div class="ftag-text"><strong>Agreement Signed</strong>Case officially opened</div>
+      </div> -->
+      <div class="ftag ft3">
+        <div class="ft3-dot"></div>
+        <div class="ftag-text"><strong>Chat Encrypted</strong>E2E secured ✓</div>
+      </div>
+      <div class="ftag ft4" style="position:absolute;bottom:120px;left:-58px">
+        <div class="ft4-num">142</div>
+        <div class="ft4-label">Cases listed today</div>
+      </div>
+      <div class="phone-frame">
+        <div class="phone-inner">
+            <img class="phone-screenshot" src="images/JURIX logo design on white background.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP
+<div class="trust-strip">
+  <div class="trust-item"><span>🔒</span><strong>End-to-End Encrypted Chats</strong></div>
+  <div class="trust-item"><span>📁</span><strong>Encrypted Document Vault</strong></div>
+  <div class="trust-item"><span>✅</span><strong>Bar Council Verified Lawyers</strong></div>
+  <div class="trust-item"><span>🏛️</span><strong>Real-Time Court Data</strong></div>
+  <div class="trust-item"><span>📅</span><strong>Apple Calendar Sync</strong></div>
+</div> -->
+
+<!-- MARQUEE -->
+<div class="marquee-band">
+  <div class="marquee-track">
+    <span class="marquee-item">Find Lawyers Nearby</span><span class="marquee-item">Bar Council Verified</span><span class="marquee-item">Send Enquiry</span><span class="marquee-item">Encrypted Chat</span><span class="marquee-item">Agreement Signing</span><span class="marquee-item">Case Tracking</span><span class="marquee-item">Daily Cause Lists</span><span class="marquee-item">Real-Time Hearings</span><span class="marquee-item">Calendar Sync</span><span class="marquee-item">Secure Documents</span>
+  </div>
+</div>
+
+
+<!-- FEATURES -->
+<section class="features-section" id="features">
+  <div class="feat-header">
+    <div class="section-label">Features</div>
+    <h2>Built for Every Step of Your Legal Journey</h2>
+    <p>Every feature in JuriX is designed around real legal workflows — nothing unnecessary, everything essential.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card fade-up"><div class="feat-icon">📍</div><h3>Location-Based Discovery</h3><p>Find top-rated lawyers near you using MapKit. Filter by region or let the app suggest the best advocates in your area.</p></div>
+    <div class="feat-card fade-up d1"><div class="feat-icon">✅</div><h3>Bar Council Verification</h3><p>Every lawyer on JuriX is verified via their Bar Council ID and photo — through API or manual review — before they can accept cases.</p></div>
+    <div class="feat-card fade-up d2"><div class="feat-icon">📨</div><h3>Enquiry System</h3><p>Clients send consultation enquiries; lawyers choose to accept or decline. Transparent, simple, and no pressure on either side.</p></div>
+    <div class="feat-card fade-up d3"><div class="feat-icon">💬</div><h3>Encrypted Chat</h3><p>All conversations in the In Discussion phase are end-to-end encrypted. No third parties. No data sharing. Completely private.</p></div>
+    <div class="feat-card fade-up d4"><div class="feat-icon">📝</div><h3>Digital Agreement Signing</h3><p>Lawyers upload an agreement form; clients sign and return it within the app. Once signed, the case is officially opened — paperless and secure.</p></div>
+    <div class="feat-card fade-up d5"><div class="feat-icon">📂</div><h3>Case Progress Tracking</h3><p>A dedicated Cases tab lets clients follow every stage of their case — from discussion through to resolution — all in one place.</p></div>
+    <div class="feat-card fade-up"><div class="feat-icon">🏛️</div><h3>Live Court Dashboard</h3><p>Lawyers get a real-time dashboard showing upcoming hearings, ongoing hearings, and daily cause lists — directly from official court data.</p></div>
+    <div class="feat-card fade-up d1"><div class="feat-icon">📋</div><h3>Daily Cause Lists</h3><p>Auto-synced cause list updates from official state court APIs every day — so lawyers are always prepared without manual searching.</p></div>
+    <div class="feat-card fade-up d2"><div class="feat-icon">🗓️</div><h3>Meetings &amp; Apple Calendar</h3><p>Schedule lawyer-client meetings in the app. All meetings and hearings sync seamlessly to the iPhone's built-in Calendar with notifications.</p></div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="security-band">
+  <div class="security-inner">
+    <div class="security-text fade-up">
+      <div class="section-label">Privacy &amp; Security</div>
+      <h2>No Third Parties.<br><span>Ever.</span></h2>
+      <p>JuriX is built entirely in-house with security at its core. Every message, document, and case detail stays between you and your lawyer — no external services, no data brokers.</p>
+    </div>
+    <div class="sec-cards fade-up d2">
+      <div class="sec-card g"><span class="sc-icon">💬</span><div><div class="sc-title">End-to-End Encrypted Chat</div><div class="sc-desc">In Discussion messages are fully private</div></div><span class="sc-badge g">Active</span></div>
+      <div class="sec-card b"><span class="sc-icon">📁</span><div><div class="sc-title">Secure Document Vault</div><div class="sc-desc">Agreement forms stored with encrypted access</div></div><span class="sc-badge b">Secure</span></div>
+      <div class="sec-card c"><span class="sc-icon">🔐</span><div><div class="sc-title">TLS 1.2+ Encryption</div><div class="sc-desc">All data transfers fully encrypted</div></div><span class="sc-badge c">Verified</span></div>
+      <div class="sec-card g"><span class="sc-icon">🪪</span><div><div class="sc-title">Bar Council Verification</div><div class="sc-desc">Every advocate verified before going live</div></div><span class="sc-badge g">Checked</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- AGREEMENT FLOW -->
+<section class="agreement-section">
+  <div class="agreement-inner">
+    <div class="section-label" style="justify-content:center">Case Opening Flow</div>
+    <h2>From Enquiry to<br>Officially Opened Case</h2>
+    <p>JuriX's structured agreement process ensures every case is documented, signed, and legally sound before proceeding.</p>
+    <div class="agreement-flow">
+      <div class="aflow-step fade-up">
+        <div class="aflow-icon">📨</div>
+        <h4>Client Sends Enquiry</h4>
+        <p>Describes their legal need</p>
+      </div>
+      <div class="aflow-arrow">→</div>
+      <div class="aflow-step fade-up d1">
+        <div class="aflow-icon">✅</div>
+        <h4>Lawyer Accepts</h4>
+        <p>Case enters In Discussion</p>
+      </div>
+      <div class="aflow-arrow">→</div>
+      <div class="aflow-step fade-up d2">
+        <div class="aflow-icon">💬</div>
+        <h4>Encrypted Chat</h4>
+        <p>Lawyer gathers case details</p>
+      </div>
+      <div class="aflow-arrow">→</div>
+      <div class="aflow-step fade-up d3">
+        <div class="aflow-icon">📋</div>
+        <h4>Agreement Uploaded</h4>
+        <p>Lawyer uploads the form</p>
+      </div>
+      <div class="aflow-arrow">→</div>
+      <div class="aflow-step fade-up d4">
+        <div class="aflow-icon" style="background:#22c55e">✍️</div>
+        <h4>Client Signs &amp; Returns</h4>
+        <p>Case is officially opened</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/JURIX logo design on white background.png" alt="JuriX Logo"/>
+        <p>JuriX is trusted legal companion — connecting clients with verified lawyers, delivering real-time court updates, and keeping every interaction private and secure.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <!-- <a href="mailto:support@jurix.app">support@jurix.app</a>
+        <a href="mailto:lawyers@jurix.app">Lawyer Registration</a> -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 JuriX. All rights reserved. Made in India 🇮🇳</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function showTab(tab, el) {
+  document.querySelectorAll('.how-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.how-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+tab).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+<script>
+const t=document.getElementById('nt'),n=document.getElementById('mn');
+if(t)t.addEventListener('click',()=>n.classList.toggle('nav-open'));
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.style.animationPlayState='running'});},{threshold:.08});
+document.querySelectorAll('.fade-up').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el)});
+</script>
+
+</body>
+</html>

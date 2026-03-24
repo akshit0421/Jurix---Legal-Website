@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy – JuriX</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --v:#5B53D7;--vd:#4840b8;--vdp:#3730a3;
+  --vg:rgba(91,83,215,.18);--vp:rgba(91,83,215,.07);--vm:rgba(91,83,215,.13);
+  --bg:#fff;--bgs:#f8f7ff;--bgc:#fff;
+  --t1:#16113a;--t2:#4b4770;--tm:#8b87a8;
+  --bd:rgba(91,83,215,.13);--bdb:rgba(91,83,215,.32);
+  --sh:0 2px 16px rgba(91,83,215,.08);
+  --shm:0 6px 32px rgba(91,83,215,.12);
+  --shl:0 16px 56px rgba(91,83,215,.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--t1);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 6vw;height:72px;background:rgba(255,255,255,.95);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--bd)}
+.nav-logo{text-decoration:none;display:flex;align-items:center}
+.nav-logo img{height:48px;width:auto;display:block;filter:invert(1) sepia(1) saturate(2) hue-rotate(220deg) brightness(.85)}
+.nav-links{display:flex;gap:.2rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--t2);font-size:.9rem;font-weight:500;padding:.42rem 1rem;border-radius:8px;transition:all .18s}
+.nav-links a:hover{color:var(--v);background:var(--vp)}
+.nav-links a.active{color:var(--v);background:var(--vm);font-weight:600}
+.nav-dl{background:var(--v)!important;color:#fff!important;border-radius:8px;padding:.42rem 1.1rem!important;font-weight:600!important;box-shadow:0 4px 14px var(--vg)}
+.nav-dl:hover{background:var(--vd)!important;transform:translateY(-1px)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--t2);border-radius:2px;transition:all .3s}
+
+/* FOOTER */
+footer{background:#16113a;padding:4rem 6vw 2.5rem;border-top:1px solid rgba(255,255,255,.06)}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand img{height:52px;width:auto;filter:brightness(10)}
+.footer-brand p{font-size:.875rem;color:rgba(255,255,255,.45);margin-top:.85rem;max-width:260px;line-height:1.7}
+.footer-col h5{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1rem}
+.footer-col a{display:block;text-decoration:none;color:rgba(255,255,255,.5);font-size:.875rem;padding:.25rem 0;transition:color .18s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.75rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.8rem;color:rgba(255,255,255,.28)}
+.footer-badges{display:flex;gap:.75rem;flex-wrap:wrap}
+.footer-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:100px;padding:.25rem .75rem;font-size:.72rem;color:rgba(255,255,255,.45)}
+
+/* UTILITIES */
+.section-label{display:inline-flex;align-items:center;gap:.5rem;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--v);margin-bottom:.85rem}
+.section-label::before{content:'';display:inline-block;width:16px;height:2px;background:var(--v);border-radius:2px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.6rem;border-radius:10px;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:600;letter-spacing:.02em;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:var(--v);color:#fff;box-shadow:0 4px 16px var(--vg)}
+.btn-primary:hover{background:var(--vd);transform:translateY(-1px);box-shadow:0 6px 24px rgba(91,83,215,.28)}
+.btn-outline{background:transparent;color:var(--v);border:1.5px solid var(--bdb)}
+.btn-outline:hover{background:var(--vp);border-color:var(--v);transform:translateY(-1px)}
+.btn-white{background:#fff;color:var(--v);font-weight:700;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.btn-white:hover{background:var(--bgs);transform:translateY(-1px)}
+
+/* PAGE HEADER */
+.page-header{margin-top:72px;padding:5rem 6vw 4.5rem;background:var(--bgs);border-bottom:1px solid var(--bd);position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 90% 50%,rgba(91,83,215,.06) 0%,transparent 70%);pointer-events:none}
+.page-header-inner{position:relative;z-index:1;max-width:780px}
+.page-header h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.2rem,4.5vw,3rem); /* slightly tighter scale */
+  font-weight:700; /* ✔ reduce heaviness */
+  line-height:1.15;
+  letter-spacing:-0.01em; /* ✔ less compressed */
+  color:var(--t1);
+}.page-header h1 em{font-style:normal;color:var(--v)}
+.page-header p{color:var(--t2);font-size:1.05rem;max-width:520px}
+
+/* CONTENT */
+.content-wrap{max-width:880px;margin:0 auto;padding:4.5rem 6vw}
+
+/* CARDS */
+.card{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:2rem 2.25rem;margin-bottom:1.25rem;box-shadow:var(--sh);transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:var(--bdb);box-shadow:var(--shm)}
+.card h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.6rem;color:var(--t1)}
+.card p,.card ul{color:var(--t2);font-size:.93rem}
+.card ul{padding-left:1.3rem}
+.card ul li{margin-bottom:.45rem}
+.card a{color:var(--v)}
+.divider{border:none;height:1px;background:linear-gradient(90deg,transparent,var(--bd),transparent);margin:3rem 0}
+h2.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:800;margin-bottom:1.5rem;color:var(--t1);letter-spacing:-.02em}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;animation:fadeUp .55s ease forwards}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}
+
+/* MOBILE NAV */
+@media(max-width:768px){
+  .nav-links{display:none}.nav-toggle{display:flex}
+  .card{padding:1.4rem 1.2rem}
+  .page-header{padding:3.5rem 5vw 3rem}
+  .content-wrap{padding:3rem 5vw}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+.nav-open .nav-links{display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--bd);padding:1rem 6vw 1.5rem;gap:.25rem;z-index:199}
+</style>
+  <style>
+.eff-banner{display:flex;align-items:center;gap:.6rem;background:var(--vp);border:1px solid var(--bdb);border-radius:10px;padding:.8rem 1.2rem;font-size:.84rem;color:var(--t2);margin-bottom:2.25rem}
+.eff-banner strong{color:var(--v)}
+.intro-box{background:var(--vp);border:1px solid var(--bd);border-left:3px solid var(--v);border-radius:0 12px 12px 0;padding:1.1rem 1.4rem;margin-bottom:2.25rem;font-size:.91rem;color:var(--t2);line-height:1.72}
+.toc{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:1.5rem 2rem;margin-bottom:2.75rem;box-shadow:var(--sh)}
+.toc h4{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:.85rem;color:var(--v)}
+.toc ol{padding-left:1.25rem}
+.toc li{font-size:.87rem;margin-bottom:.35rem;color:var(--t2)}
+.toc a{color:var(--v);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+.ps{margin-bottom:2.25rem}
+.ps h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--t1);margin-bottom:.8rem;padding-bottom:.55rem;border-bottom:1px solid var(--bd)}
+.ps p,.ps ul{font-size:.91rem;color:var(--t2);margin-bottom:.7rem;line-height:1.75}
+.ps ul{padding-left:1.35rem}
+.ps ul li{margin-bottom:.4rem}
+.ps strong{color:var(--t1);font-weight:600}
+.ps a{color:var(--v)}
+.hbox{background:var(--vp);border:1px solid var(--bdb);border-radius:9px;padding:.9rem 1.15rem;margin-bottom:.9rem;font-size:.89rem;color:var(--t2)}
+.hbox strong{color:var(--v)}
+.contact-fin{background:var(--v);border-radius:16px;padding:2.25rem;box-shadow:var(--shl)}
+.contact-fin h3{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:.4rem}
+.contact-fin p{color:rgba(255,255,255,.72);font-size:.9rem}
+.contact-fin a{display:block;margin-top:.35rem;color:rgba(255,255,255,.85);font-size:.9rem;text-decoration:none}
+.contact-fin a:hover{color:#fff}
+</style>
+</head>
+<body>
+<nav id="mn">
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html" class="active">Privacy</a></li></ul>
+  <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
+</nav>
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="section-label">Legal</div>
+    <h1>Privacy <em>Policy</em></h1>
+    <p>JuriX is built with privacy at its core. This policy explains what data we collect, why we collect it, and how it is protected.</p>
+  </div>
+</div>
+<div class="content-wrap">
+  <!-- <div class="eff-banner">📅 <strong>Effective Date:</strong>&nbsp; January 2025&nbsp;·&nbsp;<strong>Last Updated:</strong>&nbsp;1 January 2025</div> -->
+  <div class="intro-box">This Privacy Policy applies to the JuriX iOS application and associated services operated by JuriX ("we", "us", "our"). By using the app, you agree to the practices described here. JuriX does not involve third-party services in its core legal workflow — all data remains within the platform.</div>
+  <!-- <div class="toc"><h4>📋 Contents</h4><ol>
+    <li><a href="#s1">Information We Collect</a></li><li><a href="#s2">How We Use Your Information</a></li>
+    <li><a href="#s3">Data Sharing</a></li><li><a href="#s4">Data Storage &amp; Protection</a></li>
+    <li><a href="#s5">Your Rights</a></li><li><a href="#s6">Cookies &amp; Tracking</a></li>
+    <li><a href="#s7">Children's Privacy</a></li><li><a href="#s8">Changes to This Policy</a></li>
+    <li><a href="#s9">Contact Us</a></li>
+  </ol></div> -->
+
+  <div class="ps" id="s1"><h3>📁 1. Information We Collect</h3>
+    <p><strong>A. Client Account Information</strong></p>
+    <ul><li>Full name, email address, phone number</li><li>Password (stored hashed — never readable)</li><li>Location data (only when permission granted, used for lawyer discovery)</li></ul>
+    <p><strong>B. Lawyer Professional Information</strong></p>
+    <ul><li>Bar Council registration ID and Bar ID photo (for verification)</li><li>Practice areas, years of experience, professional bio, education details, experience (if have), certificates (optional), achievements (optional)</li></ul>
+    <p><strong>C. Case &amp; Legal Data</strong></p>
+    <ul><li>Enquiry details submitted by clients</li><li>Chat messages in In Discussion mode (secure in-chat — inaccessible to JuriX)</li><li>Secured agreement forms and documents  (accessible only to client and connected lawyer)</li><li>Case status and progress records</li></ul>
+    <p><strong>D. Court &amp; Calendar Data</strong></p>
+    <ul><li>Tracked case numbers and hearing preferences</li><li>Meeting dates and calendar sync preferences (if Calendar Sync is enabled)</li></ul>
+    <p><strong>E. Device &amp; Technical Data</strong></p>
+    <ul><li>Device model, iOS version, app version, crash logs</li></ul>
+  </div>
+
+  <div class="ps" id="s2"><h3>⚙️ 2. How We Use Your Information</h3>
+    <ul>
+      <li><strong>App Functionality:</strong> Running accounts, matching clients with lawyers, processing enquiries, facilitating chats and agreement signing.</li>
+      <li><strong>Lawyer Verification:</strong> Verifying Bar Council credentials via API or manual review before activation.</li>
+      <li><strong>Location Services:</strong> Using location data solely to display region-relevant lawyers on the home screen.</li>
+      <li><strong>Court Data Services:</strong> Fetching real-time hearings and daily cause lists from official court for the lawyer dashboard.</li>
+      <li><strong>Calendar Sync:</strong> Syncing meetings and hearing dates to your iPhone Calendar when you enable this feature.</li>
+      <li><strong>Push Notifications:</strong> Enquiry responses, case status changes, hearing reminders, and meeting schedules.</li>
+      <li><strong>Support &amp; Improvements:</strong> Responding to support requests and improving features using anonymised analytics.</li>
+      <li><strong>Legal Compliance:</strong> Complying with applicable Indian laws and lawful authority requests.</li>
+    </ul>
+    <div class="hbox">We do <strong>not</strong> use your data for advertising, profiling, or automated legal decision-making.</div>
+  </div>
+
+  <div class="ps" id="s3"><h3>🤝 3. Data Sharing</h3>
+    <p>JuriX does <strong>not sell, rent, or share your personal data</strong> with third parties for commercial purposes.</p>
+    <ul>
+      <li><strong>Client ↔ Lawyer:</strong> Enquiry details shared only with the specific lawyer you contact. Encrypted chat and documents accessible only to both parties.</li>
+      <li><strong>Official Court APIs:</strong> No personal user data sent — only queries to retrieve public court data.</li>
+      <!-- <li><strong>Infrastructure Providers:</strong> Secure cloud hosting, contractually bound to strict data protection standards.</li> -->
+      <li><strong>Legal Requirements:</strong> Disclosure when required by law or to protect user safety.</li>
+    </ul>
+  </div>
+
+  <div class="ps" id="s4"><h3>🔒 4. Data Storage &amp; Protection</h3>
+    <ul>
+      <li><strong>Secured Chat:</strong> In Discussion messages encrypted end-to-end — even JuriX cannot read them.</li>
+      <li><strong>Secured Document:</strong> Agreement forms stored with encryption, accessible only to the respective client and lawyer.</li>
+      <!-- <li><strong>Encryption in Transit:</strong> All communication uses HTTPS / TLS 1.2+.</li> -->
+      <li><strong>Passwords:</strong> Stored as irreversible cryptographic hashes.</li>
+      <!-- <li><strong>Access Controls:</strong> Staff access restricted to what their role requires.</li> -->
+      <!-- <li><strong>Retention:</strong> Most personal data deleted within 30 days of account deletion.</li> -->
+    </ul>
+    <!-- <div class="hbox">Use a strong, unique password and contact <strong>privacy@jurix.app</strong> immediately if you suspect any unauthorised access.</div> -->
+  </div>
+
+  <div class="ps" id="s5"><h3>✅ 5. Your Rights</h3>
+    <ul>
+      <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
+      <li><strong>Correction:</strong> Request correction of inaccurate information.</li>
+      <!-- <li><strong>Deletion:</strong> Via Settings → Account → Delete Account, or email <a href="mailto:privacy@jurix.app">privacy@jurix.app</a>.</li> -->
+      <li><strong>Portability:</strong> Request your data in a structured, machine-readable format.</li>
+      <!-- <li><strong>Withdraw Location:</strong> iPhone Settings → Privacy → Location Services → JuriX.</li> -->
+      <!-- <li><strong>Withdraw Calendar:</strong> iPhone Settings → Privacy → Calendars → JuriX, or in-app Settings.</li> -->
+    </ul>
+    <!-- <p>Email <a href="mailto:privacy@jurix.app">privacy@jurix.app</a> for any rights request. We respond within <strong>30 days</strong>.</p> -->
+  </div>
+
+  <!-- <div class="ps" id="s6"><h3>🍪 6. Cookies &amp; Tracking</h3>
+    <p>The JuriX iOS app does not use browser cookies. The app may use device identifiers and anonymised analytics for crash reporting. You can limit ad tracking via iPhone Settings → Privacy &amp; Security → Tracking. No behavioural advertising is used.</p>
+  </div> -->
+
+  <div class="ps" id="s7"><h3>👤 6. Children's Privacy</h3>
+    <p>JuriX is intended for users aged <strong>18 and above.</strong> We do not knowingly collect data from children under 18.</p>
+  </div>
+
+  <div class="ps" id="s8"><h3>🔄 7. Changes to This Policy</h3>
+    <p>We may update this policy as the app evolves. Significant changes will be communicated via in-app notification or email. Continued use constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <!-- <div class="ps" id="s9"><h3>📬 9. Contact Us</h3>
+    <p>For all privacy questions, data requests, or concerns:</p>
+    <div class="contact-fin">
+      <h3>JuriX – Privacy Team</h3>
+      <p>We respond to all privacy inquiries within 30 days.</p>
+      <a href="mailto:privacy@jurix.app">📧 privacy@jurix.app — Privacy &amp; Data Requests</a>
+      <a href="mailto:support@jurix.app">📧 support@jurix.app — General Support</a>
+    </div>
+  </div> -->
+</div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/JURIX logo design on white background.png" alt="JuriX Logo"/>
+        <p>JuriX is trusted legal companion — connecting clients with verified lawyers, delivering real-time court updates, and keeping every interaction private and secure.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <a href="support.html">Support</a>
+       <a href="privacy.html">Privacy</a>
+        <!-- <a href="mailto:support@jurix.app">support@jurix.app</a>
+        <a href="mailto:lawyers@jurix.app">Lawyer Registration</a> -->
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 JuriX. All rights reserved. Made in India 🇮🇳</p>
+    </div>
+  </div>
+</footer>
+<script>
+const t=document.getElementById('nt'),n=document.getElementById('mn');
+if(t)t.addEventListener('click',()=>n.classList.toggle('nav-open'));
+const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)e.target.style.animationPlayState='running'});},{threshold:.08});
+document.querySelectorAll('.fade-up').forEach(el=>{el.style.animationPlayState='paused';obs.observe(el)});
+</script>
+</body>
+</html>
