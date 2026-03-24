@@ -5,14 +5,14 @@ const team = [
     name: 'Akshit Goyal',
     role: 'Project Lead & Backend',
     icon: '🧠',
-    image: '/team/akshit.jpg',
+    image: '/teams/akshit.jpg',
     desc: 'Leads the project vision and architecture, driving backend systems and core app infrastructure.',
   },
   {
     name: 'Tapur Aggarwal',
     role: 'UI/UX & Swift Developer',
     icon: '🎨',
-    image: '/team/tapur.jpg',
+    image: '/teams/tapur.jpg',
     desc: "Crafts the app's interface and user experience, bringing designs to life with Swift on iOS.",
   },
   {
@@ -26,7 +26,7 @@ const team = [
     name: 'Tanmay Kataria',
     role: 'Support',
     icon: '🤝',
-    image: '/team/tanmay.jpg',
+    image: '/teams/tanmay.jpg',
     desc: 'Ensures users and lawyers get the help they need, handling feedback and platform support.',
   },
 ];
