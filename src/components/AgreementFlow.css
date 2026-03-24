@@ -1,0 +1,93 @@
+/* AGREEMENT FLOW */
+.agreement-section {
+  padding: 7rem 8vw;
+  background: var(--bgs);
+}
+
+.agreement-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.agreement-inner h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--t1);
+  margin-bottom: 0.75rem;
+}
+
+.agreement-inner > p {
+  color: var(--t2);
+  margin-bottom: 3.5rem;
+  font-size: 1rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.agreement-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.aflow-row {
+  display: contents;
+}
+
+.aflow-step {
+  text-align: center;
+  padding: 0 1.5rem;
+  flex: 1;
+  min-width: 140px;
+}
+
+.aflow-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--v);
+  color: #fff;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  box-shadow: 0 4px 16px var(--vg);
+}
+
+.aflow-arrow {
+  color: var(--bdb);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.aflow-step h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--t1);
+  margin-bottom: 0.3rem;
+}
+
+.aflow-step p {
+  font-size: 0.8rem;
+  color: var(--t2);
+}
+
+@media (max-width: 900px) {
+  .agreement-flow {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .aflow-arrow {
+    transform: rotate(90deg);
+  }
+}

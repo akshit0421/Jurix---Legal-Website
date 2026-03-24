@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+*,*::before,*::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0
+}
+
+:root{
+  --v:#5B53D7;
+  --vd:#4840b8;
+  --vdp:#3730a3;
+  --vg:rgba(91,83,215,.18);
+  --vp:rgba(91,83,215,.07);
+  --vm:rgba(91,83,215,.13);
+  --bg:#fff;
+  --bgs:#f8f7ff;
+  --bgc:#fff;
+  --t1:#16113a;
+  --t2:#4b4770;
+  --tm:#8b87a8;
+  --bd:rgba(91,83,215,.13);
+  --bdb:rgba(91,83,215,.32);
+  --sh:0 2px 16px rgba(91,83,215,.08);
+  --shm:0 6px 32px rgba(91,83,215,.12);
+  --shl:0 16px 56px rgba(91,83,215,.15);
+}
+
+html{
+  scroll-behavior:smooth
+}
+
+body{
+  font-family:'Instrument Sans',sans-serif;
+  background:var(--bg);
+  color:var(--t1);
+  line-height:1.7;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased
+}
+
+/* UTILITIES */
+.section-label{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  font-family:'Syne',sans-serif;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--v);
+  margin-bottom:.85rem
+}
+
+.section-label::before{
+  content:'';
+  display:inline-block;
+  width:16px;
+  height:2px;
+  background:var(--v);
+  border-radius:2px
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.75rem 1.6rem;
+  border-radius:10px;
+  font-family:'Syne',sans-serif;
+  font-size:.9rem;
+  font-weight:600;
+  letter-spacing:.02em;
+  text-decoration:none;
+  transition:all .2s;
+  cursor:pointer;
+  border:none
+}
+
+.btn-primary{
+  background:var(--v);
+  color:#fff;
+  box-shadow:0 4px 16px var(--vg)
+}
+
+.btn-primary:hover{
+  background:var(--vd);
+  transform:translateY(-1px);
+  box-shadow:0 6px 24px rgba(91,83,215,.28)
+}
+
+.btn-outline{
+  background:transparent;
+  color:var(--v);
+  border:1.5px solid var(--bdb)
+}
+
+.btn-outline:hover{
+  background:var(--vp);
+  border-color:var(--v);
+  transform:translateY(-1px)
+}
+
+.btn-white{
+  background:#fff;
+  color:var(--v);
+  font-weight:700;
+  box-shadow:0 2px 12px rgba(0,0,0,.1)
+}
+
+.btn-white:hover{
+  background:var(--bgs);
+  transform:translateY(-1px)
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(20px)
+  }
+  to{
+    opacity:1;
+    transform:translateY(0)
+  }
+}
+
+.fade-up{
+  opacity:0;
+  animation:fadeUp .55s ease forwards
+}
+
+.d1{animation-delay:.08s}
+.d2{animation-delay:.16s}
+.d3{animation-delay:.24s}
+.d4{animation-delay:.32s}
+.d5{animation-delay:.4s}
+
+/* CARDS */
+.card{
+  background:#fff;
+  border:1px solid var(--bd);
+  border-radius:14px;
+  padding:2rem 2.25rem;
+  margin-bottom:1.25rem;
+  box-shadow:var(--sh);
+  transition:border-color .2s,box-shadow .2s
+}
+
+.card:hover{
+  border-color:var(--bdb);
+  box-shadow:var(--shm)
+}
+
+.card h3{
+  font-family:'Syne',sans-serif;
+  font-size:1.05rem;
+  font-weight:700;
+  margin-bottom:.6rem;
+  color:var(--t1)
+}
+
+.card p,.card ul{
+  color:var(--t2);
+  font-size:.93rem
+}
+
+.card ul{
+  padding-left:1.3rem
+}
+
+.card ul li{
+  margin-bottom:.45rem
+}
+
+.card a{
+  color:var(--v)
+}
+
+.divider{
+  border:none;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--bd),transparent);
+  margin:3rem 0
+}
+
+h2.section-title{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(1.6rem,3vw,2.1rem);
+  font-weight:800;
+  margin-bottom:1.5rem;
+  color:var(--t1);
+  letter-spacing:-.02em
+}
+
+@media(max-width:768px){
+  .card{
+    padding:1.4rem 1.2rem
+  }
+}
